@@ -25,6 +25,45 @@ I specialize in building systems that are:
 
 ---
 
+## 🧩 Reference Architecture — Governed Event-Driven AI Platform
+
+```mermaid
+flowchart LR
+
+    subgraph ING[Ingestion]
+        A[Producers / Upstream Systems] --> B[RAW Topics - JSON]
+    end
+
+    subgraph CORE[Streaming Core]
+        B --> C[Streaming Layer]
+        C --> D[INGESTED - Avro Canonical]
+        D --> E[BIAN - Business Domain Model]
+    end
+
+    subgraph SERVE[Serving Layer]
+        E --> F[Sink Connectors]
+        F --> G[Databases]
+        G --> H[Consumer APIs]
+        H --> I[Web / Mobile / Downstream Systems]
+    end
+
+    subgraph AI[AI Decision Layer]
+        C --> J[AI / LLM Enrichment]
+        J --> C
+    end
+
+    subgraph GOV[Governance / Reliability / Security]
+        B -.-> K[Schema Validation + DLT]
+        D -.-> L[Schema Evolution - Backward Compatible]
+        E -.-> M[Canonical Business Semantics]
+        C -.-> N[Replay / Reprocessing]
+        C -.-> O[Idempotency]
+        C -.-> P[Backpressure Handling]
+        C -.-> Q[Token-Based Authentication]
+    end
+```
+---
+
 ## 🧠 What I’m Building
 
 - **Agentic Kafka Architectures**  
