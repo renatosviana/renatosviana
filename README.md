@@ -88,6 +88,13 @@ flowchart LR
 
 ---
 
+## 🛡️ Reliability, Security & Governance
+
+- Secure event pipelines using enterprise identity and token-based authentication
+- Design for failure: retry, replay, idempotency, and backpressure handling
+- Ensure schema governance and backward compatibility across distributed systems
+- Build observable systems with clear failure modes and recovery strategies
+
 ## ⚙️ Tech Stack
 
 **Languages:** Java (primary), Python  
