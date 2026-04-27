@@ -32,35 +32,51 @@ I specialize in building systems that are:
 ```mermaid
 flowchart LR
 
+    subgraph SRC[Core Enterprise Events]
+        A[Core Topics / Upstream Systems]
+    end
+
+    subgraph Orchestration[Microservices Layer]
+        B[Spring Boot Microservices]
+        C[Vendor / Calculation Systems]
+    end
+
     subgraph ING[Ingestion]
-        A[Producers / Upstream Systems] --> B[RAW - JSON Events]
+        D[RAW - JSON Events]
     end
 
     subgraph CORE[Streaming Core]
-        B --> C[Streaming Layer]
-        C --> D[INGESTED - Avro Canonical]
-        D --> E[BIAN - Business Domain Model]
+        E[Streaming Layer]
+        F[INGESTED - Avro Canonical]
+        G[BIAN - Business Domain Model]
     end
 
     subgraph SERVE[Serving Layer]
-        E --> F[Sink Connectors]
-        F --> G[Databases]
-        G --> H[Consumer APIs]
-        H --> I[Web / Mobile / Downstream Systems]
+        H[Sink Connectors]
+        I[Databases]
+        J[Consumer APIs]
+        K[Web / Mobile / Downstream Systems]
     end
 
-    subgraph AI[AI Decision Layer]
-        C --> J[AI / LLM Enrichment]
-        J --> C
-    end
+    A --> B
+    B --> C
+    C --> B
+    B --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> J
+    J --> K
 
     subgraph GOV[Governance / Reliability]
-        B -.-> K[Schema Validation + DLT]
-        D -.-> L[Schema Evolution - Backward Compatible]
-        E -.-> M[Canonical Business Semantics]
-        C -.-> N[Replay / Reprocessing]
-        C -.-> O[Idempotency]
-        C -.-> P[Backpressure Handling]
+        D -.-> L[RAW Validation + DLT]
+        F -.-> M[Schema Evolution - Avro Compatibility]
+        G -.-> N[Canonical Business Semantics]
+        E -.-> O[Replay / Reprocessing]
+        E -.-> P[Idempotency]
+        E -.-> Q[Backpressure Handling]
     end
 ```
 ---
