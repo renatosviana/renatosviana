@@ -94,6 +94,7 @@ flowchart LR
 - Design for failure: retry, replay, idempotency, and backpressure handling
 - Ensure schema governance and backward compatibility across distributed systems
 - Build observable systems with clear failure modes and recovery strategies
+- Support production readiness through release validation, downstream coordination, log analysis, and event-flow troubleshooting
 
 ## ⚙️ Tech Stack
 
