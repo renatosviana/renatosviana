@@ -25,7 +25,6 @@ I specialize in building systems that are:
 
 ---
 
-## 🧩 Reference Architecture — Governed Event-Driven AI Platform
 
 ## 🧩 Reference Architecture — Governed Event-Driven AI Platform
 
