@@ -27,11 +27,13 @@ I specialize in building systems that are:
 
 ## 🧩 Reference Architecture — Governed Event-Driven AI Platform
 
+## 🧩 Reference Architecture — Governed Event-Driven AI Platform
+
 ```mermaid
 flowchart LR
 
     subgraph ING[Ingestion]
-        A[Producers / Upstream Systems] --> B[RAW Topics - JSON]
+        A[Producers / Upstream Systems] --> B[RAW - JSON Events]
     end
 
     subgraph CORE[Streaming Core]
@@ -52,14 +54,13 @@ flowchart LR
         J --> C
     end
 
-    subgraph GOV[Governance / Reliability / Security]
+    subgraph GOV[Governance / Reliability]
         B -.-> K[Schema Validation + DLT]
         D -.-> L[Schema Evolution - Backward Compatible]
         E -.-> M[Canonical Business Semantics]
         C -.-> N[Replay / Reprocessing]
         C -.-> O[Idempotency]
         C -.-> P[Backpressure Handling]
-        C -.-> Q[Token-Based Authentication]
     end
 ```
 ---
